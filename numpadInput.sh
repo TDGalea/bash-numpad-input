@@ -14,8 +14,7 @@ scriptRoot="$PWD"
 beep="beep"
 
 # Main loop.
-while true
-do
+while true; do
 	clear
 	# Print date and time at top of screen.
 	printf "\e[30;47m `date +%H:%M` \e[0m \e[30;47m \"`date \"+%A, %d %B %Y\"`\" \e[0m \e[30;47m $HOSTNAME \e[0m \n\n\n"
@@ -23,8 +22,7 @@ do
 	# List options in current folder, assigning a number to each.
 	# Colour dependant on whether item is a folder or file.
 	x=0
-	for item in *
-	do
+	for item in *; do
 		printf " \e[30;47m $x \e[0m "
 		# Check if folder or file.
 		[[ -d "$item" ]] && cutdown="${item##*_}" && printf "\e[34m$cutdown\e[0m\n" && \
@@ -59,8 +57,7 @@ do
 		# Input is number. Cycle through items until number reached.
 		x=0
 		target=""
-		for currentItem in *
-		do
+		for currentItem in *; do
 			[[ "$x" = "$inp" ]] && target=$currentItem
 			let x+=1
 		done
